@@ -3,12 +3,13 @@ with open('A3/24-s1.txt', 'r') as file:
 
 min_string = ''
 min_count = 100000000
+alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 for line in lines:
     count = 0
     for i in range(len(line) - 1):
         a, b = line[i], line[i + 1]
-        if a < b:
+        if a + b in alphabet:
             count += 1
     if count < min_count:
         min_count = count
@@ -16,10 +17,10 @@ for line in lines:
 
 result = ''
 result_count = 0
-for letter in reversed('ABCDEFGHIJKLMNOPQRSTUVWXYZ'):
+for letter in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ':
     count = min_string.count(letter)
     # print(letter, count)
-    if count > result_count:
+    if count >= result_count:
         result_count = count
         result = letter
 

@@ -5,8 +5,8 @@ def fill(space, file_sizes):
             space -= size
             count += 1
             largest = size
-        elif space - largest + size >= 0:
-            space = space - largest + size
+        elif space + largest - size >= 0:
+            space = space + largest - size
             largest = size
 
     return count, largest
